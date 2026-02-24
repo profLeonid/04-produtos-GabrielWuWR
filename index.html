@@ -9,6 +9,11 @@
         * {
             font-family: comic sans ms;
         }
+
+        .scroll-hidden {
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="./script.js"></script>
@@ -21,9 +26,10 @@
         <h1 class="text-white text-4xl font-semibold">Cadastrar Produto</h1>
     </header>
 
-    <main class="flex justify-center items-start pt-10">
-        <div>
-            <form class="bg-slate-800 p-8 rounded-lg shadow-lg flex flex-col gap-6" onsubmit="cadastrarProduto(); return false;">
+    <main class="flex flex-col items-center justify-center pt-10">
+        <div class="flex items-start justify-center gap-6">
+            <form class="bg-slate-800 p-8 rounded-lg shadow-lg flex flex-col gap-6"
+                onsubmit="cadastrarProduto(); return false;">
                 <p class="text-blue-400 text-2xl font-medium">
                     Informe os dados do produto:
                 </p>
@@ -51,28 +57,32 @@
                 </div>
             </form>
 
-            <table class="mt-10 w-full max-w-2xl table-auto border-collapse bg-slate-800 
-               text-slate-200 rounded-lg overflow-hidden shadow-lg">
 
-                <thead class="bg-blue-500 text-white">
-                    <tr>
-                        <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
-                            Código
-                        </th>
-                        <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
-                            Produto
-                        </th>
-                        <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
-                            Quantidade
-                        </th>
-                    </tr>
-                </thead>
 
-                <tbody id="tabela" class="divide-y divide-slate-700">
-                </tbody>
+            <div class="max-h-110 scroll-hidden rounded-lg shadow-lg">
+                <table class="w-50 max-w-3xl table-auto border-collapse bg-slate-800 text-slate-200">
 
-            </table>
+                    <thead class="bg-blue-500 text-white sticky top-0">
+                        <tr>
+                            <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
+                                Código
+                            </th>
+                            <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
+                                Produto
+                            </th>
+                            <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
+                                Quantidade
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabela" class="divide-y divide-slate-700">
+                    </tbody>
+
+                </table>
+            </div>
         </div>
+        <p id="erro" class="text-red-500 h-5 mt-4 text-2xl"></p>
     </main>
 
 </body>
