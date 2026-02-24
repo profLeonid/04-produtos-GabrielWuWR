@@ -15,8 +15,6 @@
 //     }
 // }
 
-//caixas de texto
-
 function cadastrarProduto() {
     const codigo = document.getElementById('codigo');
     const produto = document.getElementById('produto');
@@ -43,5 +41,7 @@ function cadastrarProduto() {
         linha.appendChild(itemProduto);
         linha.appendChild(itemQuantidade);
         tabela.appendChild(linha);
+    } else {
+        alert('Verifique todos os campos eles são todos obrigatorios');
     }
 }
