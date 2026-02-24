@@ -15,17 +15,66 @@
     <title>Produtos</title>
 </head>
 
-<body class="bg-gray-200 flex justify-center flex-col items-center gap-5 h-screen">
-    <h1 class="text-2xl border-b-3 py-2 px-14 border-blue-500">Lista Produtos</h1>
-    <input placeholder="Digite o nome um produto" class="border-2 rounded-2xl px-12 py-2 flex border-blue-500" id="produto" type="text">
-    <button class="bg-blue-500 text-white px-4 py-2 rounded-2xl hover:cursor-pointer hover:bg-blue-600"
-        onclick="adicionarProduto()">
-        Adicionar
-    </button>
+<body class="bg-slate-900">
 
-    <div id="lista" class="flex flex-col gap-2">
+    <header class="bg-slate-800 flex justify-center py-4 border-b-4 border-blue-500">
+        <h1 class="text-white text-4xl font-semibold">Cadastrar Produto</h1>
+    </header>
 
-    </div>
+    <main class="flex justify-center items-start pt-10">
+        <div>
+            <form class="bg-slate-800 p-8 rounded-lg shadow-lg flex flex-col gap-6" onsubmit="cadastrarProduto(); return false;">
+                <p class="text-blue-400 text-2xl font-medium">
+                    Informe os dados do produto:
+                </p>
+                <div class="flex flex-col w-80 gap-2">
+                    <label class="text-slate-300" for="codigo">
+                        Digite o código
+                    </label>
+                    <input id="codigo" class="bg-white text-slate-800 px-4 py-2 rounded-md
+                               focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" min="0"
+                        placeholder="Digite o código do produto">
+                    <label class="text-slate-300" for="nome">
+                        Digite o nome
+                    </label>
+                    <input id="produto" class="bg-white text-slate-800 px-4 py-2 rounded-md
+                                   focus:outline-none focus:ring-2 focus:ring-blue-500" type="text"
+                        placeholder="Digite o nome do produto">
+                    <label class="text-slate-300" for="quantidade">
+                        Digite a quantidade
+                    </label>
+                    <input id="quantidade" class="bg-white text-slate-800 px-4 py-2 rounded-md
+                                       focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" min="0"
+                        placeholder="Digite a quantidade do produto">
+                    <input type="submit" value="Cadastrar"
+                        class="mt-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-md cursor-pointer shadow-md" />
+                </div>
+            </form>
+
+            <table class="mt-10 w-full max-w-2xl table-auto border-collapse bg-slate-800 
+               text-slate-200 rounded-lg overflow-hidden shadow-lg">
+
+                <thead class="bg-blue-500 text-white">
+                    <tr>
+                        <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
+                            Código
+                        </th>
+                        <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
+                            Produto
+                        </th>
+                        <th class="px-6 py-3 text-sm font-semibold uppercase tracking-wider">
+                            Quantidade
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabela" class="divide-y divide-slate-700">
+                </tbody>
+
+            </table>
+        </div>
+    </main>
+
 </body>
 
 </html>
